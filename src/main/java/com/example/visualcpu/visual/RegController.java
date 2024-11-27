@@ -17,15 +17,15 @@ public class RegController implements IObserver{
     }
     @Override
     public void event(Program prog) {
-        HashMap<Integer, Integer> regs = prog.RegisterRange();
+        HashMap<Integer, Integer> regs = prog.stats.RegisterRange(prog.comms, prog.cpu);;
 
         for (int i = 0; i < 4; i++)
         {
             Label reg = (Label) RegView.getChildren().get(4 + i);
             if (regs.containsKey(i))
-                reg.setText(String.valueOf(regs.get(i)));
-            else
-                reg.setText("*");
+                if (regs.get(i) != null)
+                    reg.setText(String.valueOf(regs.get(i)));
+            else {reg.setText("*");}
         }
     }
 }

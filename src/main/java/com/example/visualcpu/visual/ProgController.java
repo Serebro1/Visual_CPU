@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
 public class ProgController{
     Program prog = BProgram.build();
@@ -42,6 +43,21 @@ public class ProgController{
     @FXML
     void runCom() throws Exception {
         addBut.setDisable(true);
-        prog.runCom();
+        try {
+            prog.runCom();
+        }
+        catch (NoSuchElementException e){
+
+            System.out.println("Программа завершена");
+            resetProgram();
+        }
+        catch (NullPointerException e) {
+            System.out.println("Добавьте команду");
+        }
+        catch (RuntimeException e)
+        {
+            System.out.println(e.getMessage());
+            resetProgram();
+        }
     }
 }

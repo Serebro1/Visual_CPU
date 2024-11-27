@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="132.0" prefWidth="232.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.visualcpu.visual.FrequencyController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="132.0" prefWidth="232.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.visualcpu.visual.FrequencyController">
    <children>
       <VBox prefHeight="132.0" prefWidth="232.0">
          <children>

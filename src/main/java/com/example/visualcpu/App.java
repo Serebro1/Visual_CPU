@@ -28,14 +28,6 @@ public class App
         prog.addCom(new Command("print"));
         for(Command c: prog) System.out.println(c);
 
-        System.out.println();
-        System.out.println(prog.mostPopularInstruction()); // ld
-        System.out.println();
-        prog.SortedInstruction();
-        prog.MemoryRange();
-
-        ICPU cpu = BCPU.build();
-        Executer exec = new Executer(cpu);
 
     }
 }

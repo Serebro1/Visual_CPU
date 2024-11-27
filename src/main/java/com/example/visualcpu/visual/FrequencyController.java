@@ -19,12 +19,21 @@ public class FrequencyController implements IObserver {
     @FXML
     void initialize(){
         prog.allObserver.add(this);
+        HashMap<Task, Long> stats = prog.stats.SortedInstruction(prog.comms);
+        for(Map.Entry<Task, Long> entry : stats.entrySet()){
+            HBox freq = new HBox();
+            freq.setSpacing(70);
+            freq.setAlignment(Pos.TOP_CENTER);
+            freq.getChildren().add(new Label(entry.getKey().toString()));
+            freq.getChildren().add(new Label(Long.toString(entry.getValue())));
 
+            FreqView.getChildren().add(freq);
+        }
     }
 
     @Override
     public void event(Program prog) {
-        HashMap<Task, Long> stats = prog.SortedInstruction();
+        HashMap<Task, Long> stats = prog.stats.SortedInstruction(prog.comms);
         FreqView.getChildren().clear();
         for(Map.Entry<Task, Long> entry : stats.entrySet()){
             HBox freq = new HBox();
