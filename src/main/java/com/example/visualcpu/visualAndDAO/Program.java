@@ -1,13 +1,13 @@
-package com.example.visualcpu.visual;
+package com.example.visualcpu.visualAndDAO;
 
 import com.example.visualcpu.cpu.*;
 
 import java.util.*;
 
 public class Program implements Iterable<Command> {
-    ArrayList<Command> comms = new ArrayList<>();
+    DAO_Commands dao = B_DAO.getDAO();
     ArrayList<IObserver> allObserver = new ArrayList<>();
-    Iterator<Command> iter;
+    Iterator<Command> iter = iterator();
     ICPU cpu = BCPU.build();
     Command activeCom;
     Statistics stats = new Statistics();
@@ -22,31 +22,26 @@ public class Program implements Iterable<Command> {
     }
 
     public Program(){
-//        addCom(new Command("init 10 20"));
-//        addCom(new Command("init" ,"11", "25"));
-//        addCom(new Command("ld", "a" ,"10"));
-//        addCom(new Command("ld", "b" ,"11"));
-//        addCom(new Command("ld", "c" ,"11"));
-//        addCom(new Command("add"));
-//        addCom(new Command("mv", "a" ,"d"));
-//        addCom(new Command("add"));
-//        addCom(new Command("st", "d", "30"));
-//        addCom(new Command("print"));
+
     }
     public void addCom(Command c){
-        comms.add(c);
+        dao.addCom(c);
+        //comms.add(c);
+
         resetProg();
     }
 
     public void removeCom(Command c){
-        comms.remove(c);
+        dao.removeCom(c);
+        //comms.remove(c);
         resetProg();
     }
 
     public void swapComs(Command c1, Command c2){
-        int tmp = comms.indexOf(c1);
-        comms.set(comms.indexOf(c2), c1);
-        comms.set(tmp, c2);
+        dao.swapComs(c1, c2);
+//        int tmp = comms.indexOf(c1);
+//        comms.set(comms.indexOf(c2), c1);
+//        comms.set(tmp, c2);
         resetProg();
     }
 
@@ -59,11 +54,12 @@ public class Program implements Iterable<Command> {
     public void resetProg() { // решить проблему с обманом завершения программы и отсутствием программы
         activeCom = null;
         stats.activeCom = null;
-        iter = comms.iterator();
+        iter = iterator();
         eventCall();
     }
     @Override
     public Iterator<Command> iterator() {
-        return comms.iterator();
+        return dao.iterator();
+        //return comms.iterator();
     }
 }

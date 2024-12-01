@@ -1,4 +1,4 @@
-package com.example.visualcpu.visual;
+package com.example.visualcpu.visualAndDAO;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -17,7 +17,7 @@ public class RegController implements IObserver{
     }
     @Override
     public void event(Program prog) {
-        HashMap<Integer, Integer> regs = prog.stats.RegisterRange(prog.comms, prog.cpu);;
+        HashMap<Integer, Integer> regs = prog.stats.RegisterRange(prog.dao.comms, prog.cpu);
 
         for (int i = 0; i < 4; i++)
         {

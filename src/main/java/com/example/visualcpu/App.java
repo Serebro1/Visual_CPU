@@ -1,10 +1,7 @@
 package com.example.visualcpu;
 
-import com.example.visualcpu.cpu.BCPU;
-import com.example.visualcpu.cpu.Command;
-import com.example.visualcpu.cpu.Executer;
-import com.example.visualcpu.cpu.ICPU;
-import com.example.visualcpu.visual.Program;
+import com.example.visualcpu.visualAndDAO.Command;
+import com.example.visualcpu.visualAndDAO.Program;
 
 /**
  * Hello world!
@@ -14,7 +11,7 @@ public class App
 {
     static Program prog = new Program();
 
-    public static void main( String[] args ) throws Exception {
+    public static void main( String[] args ) {
 
         prog.addCom(new Command("init 10 20"));
         prog.addCom(new Command("init" ,"11", "25"));

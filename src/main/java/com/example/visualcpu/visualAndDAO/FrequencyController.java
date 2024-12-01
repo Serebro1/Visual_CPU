@@ -1,10 +1,9 @@
-package com.example.visualcpu.visual;
+package com.example.visualcpu.visualAndDAO;
 
 import com.example.visualcpu.cpu.Task;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -19,7 +18,7 @@ public class FrequencyController implements IObserver {
     @FXML
     void initialize(){
         prog.allObserver.add(this);
-        HashMap<Task, Long> stats = prog.stats.SortedInstruction(prog.comms);
+        HashMap<Task, Long> stats = prog.stats.SortedInstruction(prog.dao.comms);
         for(Map.Entry<Task, Long> entry : stats.entrySet()){
             HBox freq = new HBox();
             freq.setSpacing(70);
@@ -33,7 +32,7 @@ public class FrequencyController implements IObserver {
 
     @Override
     public void event(Program prog) {
-        HashMap<Task, Long> stats = prog.stats.SortedInstruction(prog.comms);
+        HashMap<Task, Long> stats = prog.stats.SortedInstruction(prog.dao.comms);
         FreqView.getChildren().clear();
         for(Map.Entry<Task, Long> entry : stats.entrySet()){
             HBox freq = new HBox();

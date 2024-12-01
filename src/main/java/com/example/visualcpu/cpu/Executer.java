@@ -1,10 +1,10 @@
 package com.example.visualcpu.cpu;
 
-import com.example.visualcpu.visual.Program;
+import com.example.visualcpu.visualAndDAO.Command;
 
 public class Executer {
     ICPU cpu;
-    public void run(Command commas) throws Exception {
+    public void run(Command commas) {
         try {
             cpu.run(commas);
         } catch (Exception e)

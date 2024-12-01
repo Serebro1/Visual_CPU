@@ -1,7 +1,6 @@
-package com.example.visualcpu.visual;
+package com.example.visualcpu.visualAndDAO;
 
 import com.example.visualcpu.ProgApplication;
-import com.example.visualcpu.cpu.Command;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,17 +8,14 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
 public class ProgController{
     Program prog = BProgram.build();
-    private ArrayList<Node> comms;
     @FXML
     Button addBut;
 

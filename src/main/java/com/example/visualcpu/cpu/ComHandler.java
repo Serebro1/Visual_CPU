@@ -1,5 +1,7 @@
 package com.example.visualcpu.cpu;
 
+import com.example.visualcpu.visualAndDAO.Command;
+
 public class ComHandler {
     ComHandler next;
     void run(Command comm, CPU cpu) throws Exception

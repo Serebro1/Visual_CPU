@@ -1,5 +1,7 @@
 package com.example.visualcpu.cpu;
 
+import com.example.visualcpu.visualAndDAO.Command;
+
 public class CPU implements ICPU{
 
     private int[] mems = new int[1024];

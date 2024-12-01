@@ -1,5 +1,7 @@
 package com.example.visualcpu.cpu;
 
+import com.example.visualcpu.visualAndDAO.Command;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -30,10 +32,10 @@ public class Statistics {
             if (activeCom == null) return mapMem;
             switch (c.getTask()){
                 case Task.init:
-                    mapMem.put(c.getNum1(), c.getNum2());
+                    mapMem.put(c.getArg1(), c.getArg2());
                     break;
                 case Task.st:
-                    mapMem.put(c.getNum2(), cpu.getReg()[c.getNum1()]);
+                    mapMem.put(c.getArg2(), cpu.getReg()[c.getArg1()]);
                     break;
             }
             if (c == activeCom) return mapMem;
@@ -48,10 +50,10 @@ public class Statistics {
             if (activeCom == null) return mapReg;
             switch (c.getTask()){
                 case Task.mv:
-                    mapReg.put(c.getNum1(), regs[c.getNum1()]);
+                    mapReg.put(c.getArg1(), regs[c.getArg1()]);
                     break;
                 case Task.ld:
-                    mapReg.put(c.getNum1(), mapMem.get(c.getNum2()));
+                    mapReg.put(c.getArg1(), mapMem.get(c.getArg2()));
                     break;
                 case Task.add, Task.sub, Task.div, Task.mul:
                     mapReg.put(3, regs[3]);

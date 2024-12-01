@@ -1,4 +1,4 @@
-package com.example.visualcpu.visual;
+package com.example.visualcpu.visualAndDAO;
 
 public class BProgram {
     static Program prog = new Program();

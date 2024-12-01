@@ -1,5 +1,7 @@
 package com.example.visualcpu.cpu;
 
+import com.example.visualcpu.visualAndDAO.Command;
+
 public class OpHandler extends ComHandler{
     @Override
     void run(Command comm, CPU cpu) throws  Exception

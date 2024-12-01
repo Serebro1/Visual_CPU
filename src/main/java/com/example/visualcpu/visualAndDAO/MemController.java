@@ -1,4 +1,4 @@
-package com.example.visualcpu.visual;
+package com.example.visualcpu.visualAndDAO;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -6,7 +6,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
-import java.util.Collections;
 import java.util.HashMap;
 
 public class MemController implements IObserver{
@@ -19,7 +18,7 @@ public class MemController implements IObserver{
     void initialize(){
         prog.allObserver.add(this);
         MemoryView.setSpacing(2.0);
-        mem = prog.stats.MemoryRange(prog.comms, prog.cpu);
+        mem = prog.stats.MemoryRange(prog.dao.comms, prog.cpu);
         int max = 1024; // как получить максимальное кол-во памяти?
         for (int row = 0; row < (max / 5 + 1); row++){
             HBox element = new HBox();
@@ -38,7 +37,7 @@ public class MemController implements IObserver{
 
     @Override
     public void event(Program prog) {
-        mem = prog.stats.MemoryRange(prog.comms, prog.cpu);
+        mem = prog.stats.MemoryRange(prog.dao.comms, prog.cpu);
         int max = 1024;
         for (int row = 0; row < (max / 5 + 1); row++){
             for (int col = 0; col < 5; col++){

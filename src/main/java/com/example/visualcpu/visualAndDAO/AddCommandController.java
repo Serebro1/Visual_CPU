@@ -1,8 +1,5 @@
-package com.example.visualcpu.visual;
+package com.example.visualcpu.visualAndDAO;
 
-import com.example.visualcpu.cpu.Command;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;

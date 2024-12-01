@@ -1,7 +1,6 @@
-package com.example.visualcpu.visual;
+package com.example.visualcpu.visualAndDAO;
 
 import com.example.visualcpu.ProgApplication;
-import com.example.visualcpu.cpu.Command;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.Pane;
