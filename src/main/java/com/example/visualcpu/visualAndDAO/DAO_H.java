@@ -30,7 +30,19 @@ public class DAO_H extends DAO_Commands{
 
         updateList();
     }
+    public void swapComs(Command c1, Command c2){
+        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        Transaction tx1 = session.beginTransaction();
+        int tmp = c1.ID;
+        c1.ID = c2.ID;
+        c2.ID = tmp;
+        session.merge(c1);
+        session.merge(c2);
+        tx1.commit();
+        session.close();
 
+        updateList();
+    }
 
     protected void updateList(){
         comms.clear();
